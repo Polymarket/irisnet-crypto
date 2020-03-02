@@ -53,7 +53,7 @@ $root.kava = (function() {
 
         /**
          * Coin amount.
-         * @member {string} amount
+         * @member {string} amountKava
          * @memberof kava.Coin
          * @instance
          */

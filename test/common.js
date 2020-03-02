@@ -11,6 +11,9 @@ const config = {
   },
   cosmos:{
 
+  },
+  kava:{
+      
   }
 };
 

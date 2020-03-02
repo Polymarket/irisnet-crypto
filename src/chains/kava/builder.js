@@ -5,12 +5,12 @@ const Bank = require('./bank');
 const Stake = require('./stake');
 const Distribution = require('./distribution');
 const Gov = require('./gov');
-const CosmosKeypair = require('./keypair');
+const KavaKeypair = require('./keypair');
 const Codec = require("../../util/codec");
 const Config = require('../../../config');
 const StdTx = require("./stdTx");
 
-class CosmosBuilder extends Builder {
+class KavaBuilder extends Builder {
 
 
     /**
@@ -27,7 +27,7 @@ class CosmosBuilder extends Builder {
                 msg = Bank.create(req);
                 break;
             }
-            case Config.iris.tx.delegate.type: {
+            case Config.kava.tx.delegate.type: {
                 msg = Stake.createMsgDelegate(req);
                 break;
             }
@@ -77,8 +77,8 @@ class CosmosBuilder extends Builder {
         if (typeof data === "string") {
             data = JSON.parse(data);
         }
-        let signbyte = CosmosKeypair.sign(privateKey, data);
-        let keypair = CosmosKeypair.import(privateKey);
+        let signbyte = KavaKeypair.sign(privateKey, data);
+        let keypair = KavaKeypair.import(privateKey);
 
         return {
             pub_key:Codec.Hex.hexToBytes(keypair.publicKey),
@@ -103,4 +103,4 @@ class CosmosBuilder extends Builder {
         return stdTx
     }
 }
-module.exports = Old(CosmosBuilder);
+module.exports = Old(KavaBuilder);

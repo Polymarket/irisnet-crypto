@@ -11,7 +11,7 @@ const BN = require("bn");
 const Config = require('../../../config');
 const Amino = require('../base');
 
-class CosmosKeypair {
+class KavaKeypair {
 
     static getPrivateKeyFromSecret(mnemonicS) {
         let seed = Bip39.mnemonicToSeed(mnemonicS);
@@ -199,4 +199,4 @@ class Hd {
 }
 
 
-module.exports = CosmosKeypair;
+module.exports = KavaKeypair;

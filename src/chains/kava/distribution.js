@@ -93,8 +93,6 @@ MsgWithdrawDelegatorReward.prototype.GetDisplayContent = function (){
         i18n_delegator_addr:delegatorAddress,
         i18n_validator_addr:validatorAddress,
     }
-};
-
 
 MsgWithdrawValidatorCommission.prototype.type = Config.kava.tx.withdrawValidatorCommission.prefix;
 MsgWithdrawValidatorCommission.prototype.GetSignBytes = function () {
