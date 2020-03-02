@@ -61,6 +61,9 @@ class Builder {
             case Config.chain.cosmos: {
                 return require('./chains/cosmos/builder')();
             }
+            case Config.chain.kava: {
+                return require('./chains/kava/builder')();
+            }
             default: {
                 throw new Error("not correct chain");
             }

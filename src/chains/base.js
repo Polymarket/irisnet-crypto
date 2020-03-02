@@ -4,6 +4,7 @@ const Codec = require("../util/codec");
 const Sha256 = require("sha256");
 const Config = require('../../config');
 const R_Cosmos = require('./cosmos/tx/tx');
+const R_Cosmos = require('./kava/tx/tx');
 const R_Iris = require('./iris/tx/tx');
 
 /**
@@ -90,6 +91,20 @@ amino.RegisterConcrete(R_Cosmos.cosmos.MsgBeginRedelegate, Config.cosmos.tx.begi
 amino.RegisterConcrete(R_Cosmos.cosmos.MsgDeposit, Config.cosmos.tx.deposit.prefix);
 amino.RegisterConcrete(R_Cosmos.cosmos.MsgVote, Config.cosmos.tx.vote.prefix);
 amino.RegisterConcrete(R_Cosmos.cosmos.StdTx, Config.cosmos.tx.stdTx.prefix);
+
+amino.RegisterConcrete(null, Config.kava.amino.pubKey);
+amino.RegisterConcrete(null, Config.kava.amino.signature);
+amino.RegisterConcrete(R_Kava.kava.MsgDelegate, Config.kava.tx.delegate.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgSend, Config.kava.tx.transfer.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgSetWithdrawAddress, Config.kava.tx.setWithdrawAddress.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgWithdrawDelegatorReward, Config.kava.tx.withdrawDelegatorReward.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgWithdrawValidatorCommission, Config.kava.tx.withdrawValidatorCommission.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgUndelegate, Config.kava.tx.undelegate.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgBeginRedelegate, Config.kava.tx.beginRedelegate.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgDeposit, Config.kava.tx.deposit.prefix);
+amino.RegisterConcrete(R_Kava.kava.MsgVote, Config.kava.tx.vote.prefix);
+amino.RegisterConcrete(R_Kava.kava.StdTx, Config.kava.tx.stdTx.prefix);
+
 
 amino.RegisterConcrete(null, Config.iris.amino.pubKey);
 amino.RegisterConcrete(null, Config.iris.amino.signature);
