@@ -62,6 +62,9 @@ class Builder {
       case Config.chain.kava: {
         return require('./chains/kava/builder')();
       }
+      case Config.chain.terra: {
+        return require('./chains/kava/builder')();
+      }
       default: {
         throw new Error('not correct chain');
       }

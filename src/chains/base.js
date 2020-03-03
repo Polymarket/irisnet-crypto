@@ -5,6 +5,7 @@ const Config = require('../../config');
 const R_Cosmos = require('./cosmos/tx/tx');
 const R_Kava = require('./kava/tx/tx');
 const R_Iris = require('./iris/tx/tx');
+const R_Terra = require('./terra/tx/tx');
 
 /**
  * 处理amino编码（目前支持序列化）
@@ -102,6 +103,19 @@ amino.RegisterConcrete(R_Kava.kava.MsgBeginRedelegate, Config.kava.tx.beginRedel
 amino.RegisterConcrete(R_Kava.kava.MsgDeposit, Config.kava.tx.deposit.prefix);
 amino.RegisterConcrete(R_Kava.kava.MsgVote, Config.kava.tx.vote.prefix);
 amino.RegisterConcrete(R_Kava.kava.StdTx, Config.kava.tx.stdTx.prefix);
+
+amino.RegisterConcrete(null, Config.terra.amino.pubKey);
+amino.RegisterConcrete(null, Config.terra.amino.signature);
+amino.RegisterConcrete(R_Terra.terra.MsgDelegate, Config.terra.tx.delegate.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgSend, Config.terra.tx.transfer.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgSetWithdrawAddress, Config.terra.tx.setWithdrawAddress.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgWithdrawDelegatorReward, Config.terra.tx.withdrawDelegatorReward.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgWithdrawValidatorCommission, Config.terra.tx.withdrawValidatorCommission.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgUndelegate, Config.terra.tx.undelegate.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgBeginRedelegate, Config.terra.tx.beginRedelegate.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgDeposit, Config.terra.tx.deposit.prefix);
+amino.RegisterConcrete(R_Terra.terra.MsgVote, Config.terra.tx.vote.prefix);
+amino.RegisterConcrete(R_Terra.terra.StdTx, Config.terra.tx.stdTx.prefix);
 
 
 amino.RegisterConcrete(null, Config.iris.amino.pubKey);

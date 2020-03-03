@@ -101,6 +101,9 @@ class Crypto {
       case Config.chain.kava: {
         return require('./chains/kava/crypto')();
       }
+      case Config.chain.terra: {
+        return require('./chains/terra/crypto')();
+      }
       default: {
         throw new Error('not correct chain');
       }
