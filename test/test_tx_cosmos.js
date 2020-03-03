@@ -264,6 +264,6 @@ describe('cosmos transaction', function () {
 });
 
 function verify(act,exp,data) {
-    console.log('result:',act,exp,data)
+    console.log('result:',act,exp,data);
     assert.notExists(act.code,`tx commit failed,${act.raw_log}`);
 }
