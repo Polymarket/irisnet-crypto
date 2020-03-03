@@ -38,7 +38,7 @@
         "prefix": "irishub/bank/StdTx"
       }
     },
-    "mode":{
+    "mode": {
       "try": "try",
       "normal": "normal"
     },
@@ -65,7 +65,7 @@
     }
   },
   "cosmos": {
-    "tx":{
+    "tx": {
       "transfer": {
         "type": "transfer",
         "prefix": "cosmos-sdk/MsgSend"
@@ -124,6 +124,126 @@
     },
     "bip39Path": "44'/118'/0'/0/0"
   },
+  "terra": {
+    "tx": {
+      "transfer": {
+        "type": "transfer",
+        "prefix": "cosmos-sdk/MsgSend"
+      },
+      "delegate": {
+        "type": "delegate",
+        "prefix": "cosmos-sdk/MsgDelegate"
+      },
+      "undelegate": {
+        "type": "undelegate",
+        "prefix": "cosmos-sdk/MsgUndelegate"
+      },
+      "beginRedelegate": {
+        "type": "begin_redelegate",
+        "prefix": "cosmos-sdk/MsgBeginRedelegate"
+      },
+      "setWithdrawAddress": {
+        "type": "set_withdraw_address",
+        "prefix": "cosmos-sdk/MsgModifyWithdrawAddress"
+      },
+      "withdrawDelegatorReward": {
+        "type": "withdraw_delegation_reward",
+        "prefix": "cosmos-sdk/MsgWithdrawDelegationReward"
+      },
+      "withdrawValidatorCommission": {
+        "type": "withdraw_validator_commission",
+        "prefix": "cosmos-sdk/MsgWithdrawValidatorCommission"
+      },
+      "deposit": {
+        "type": "deposit",
+        "prefix": "cosmos-sdk/MsgDeposit"
+      },
+      "vote": {
+        "type": "vote",
+        "prefix": "cosmos-sdk/MsgVote"
+      },
+      "stdTx": {
+        "type": "stdTx",
+        "prefix": "cosmos-sdk/StdTx"
+      }
+    },
+    "bech32": {
+      "accAddr": "terra",
+      "valAddr": "terravaloper",
+      "accPub": "terrapub"
+    },
+    "defaultCoding": "bech32",
+    "coding": {
+      "bech32": "bech32",
+      "hex": "hex"
+    },
+    "maxGas": 20000000,
+    "amino": {
+      "signature": "tendermint/SignatureSecp256k1",
+      "pubKey": "tendermint/PubKeySecp256k1"
+    },
+    "bip39Path": "44'/118'/0'/0/0"
+  },
+  "kava": {
+    "tx": {
+      "transfer": {
+        "type": "transfer",
+        "prefix": "cosmos-sdk/MsgSend"
+      },
+      "delegate": {
+        "type": "delegate",
+        "prefix": "cosmos-sdk/MsgDelegate"
+      },
+      "undelegate": {
+        "type": "undelegate",
+        "prefix": "cosmos-sdk/MsgUndelegate"
+      },
+      "beginRedelegate": {
+        "type": "begin_redelegate",
+        "prefix": "cosmos-sdk/MsgBeginRedelegate"
+      },
+      "setWithdrawAddress": {
+        "type": "set_withdraw_address",
+        "prefix": "cosmos-sdk/MsgModifyWithdrawAddress"
+      },
+      "withdrawDelegatorReward": {
+        "type": "withdraw_delegation_reward",
+        "prefix": "cosmos-sdk/MsgWithdrawDelegationReward"
+      },
+      "withdrawValidatorCommission": {
+        "type": "withdraw_validator_commission",
+        "prefix": "cosmos-sdk/MsgWithdrawValidatorCommission"
+      },
+      "deposit": {
+        "type": "deposit",
+        "prefix": "cosmos-sdk/MsgDeposit"
+      },
+      "vote": {
+        "type": "vote",
+        "prefix": "cosmos-sdk/MsgVote"
+      },
+      "stdTx": {
+        "type": "stdTx",
+        "prefix": "cosmos-sdk/StdTx"
+      }
+    },
+    "bech32": {
+      "accAddr": "kava",
+      "valAddr": "kavavaloper",
+      "accPub": "kavapub"
+    },
+    "defaultCoding": "bech32",
+    "coding": {
+      "bech32": "bech32",
+      "hex": "hex"
+    },
+    "maxGas": 20000000,
+    "amino": {
+      "signature": "tendermint/SignatureSecp256k1",
+      "pubKey": "tendermint/PubKeySecp256k1"
+    },
+    "bip39Path": "44'/118'/0'/0/0"
+  },
   "language": {
     "cn": "chinese_simplified",
     "jp": "japanese",
@@ -133,6 +253,8 @@
   "chain": {
     "iris": "iris",
     "ethermint": "ethermint",
-    "cosmos": "cosmos"
+    "cosmos": "cosmos",
+    "kava": "kava",
+    "terra": "terra"
   }
 }

@@ -1,36 +1,36 @@
-'use strict';
-const Crypto = require("../../crypto");
+
 const Old = require('old');
+const Crypto = require('../../crypto');
 const EthermintKeypair = require('./ethermint_keypair');
 
 class EthermintCrypto extends Crypto {
-    constructor() {
-        super()
-    }
+  constructor() {
+    super();
+  }
 
-    create(language) {
-        throw new Error("not implement");
-    }
+  create(language) {
+    throw new Error('not implement');
+  }
 
-    recover(seedphrase, language) {
-        throw new Error("not implement");
-    }
+  recover(seedphrase, language) {
+    throw new Error('not implement');
+  }
 
-    import(secret) {
-        return EthermintKeypair.Import(secret);
-    }
+  import(secret) {
+    return EthermintKeypair.Import(secret);
+  }
 
-    isValidAddress(address) {
-        return EthermintKeypair.isValidAddress(address);
-    }
+  isValidAddress(address) {
+    return EthermintKeypair.isValidAddress(address);
+  }
 
-    isValidPrivate(privateKey) {
-        return EthermintKeypair.isValidPrivate(new Buffer(Hex.hexToBytes(privateKey)));
-    }
+  isValidPrivate(privateKey) {
+    return EthermintKeypair.isValidPrivate(new Buffer(Hex.hexToBytes(privateKey)));
+  }
 
-    getAddress(publicKey) {
-        return EthermintKeypair.getAddress(publicKey);
-    }
+  getAddress(publicKey) {
+    return EthermintKeypair.getAddress(publicKey);
+  }
 }
 
 module.exports = Old(EthermintCrypto);
