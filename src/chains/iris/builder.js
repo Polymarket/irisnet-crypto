@@ -17,45 +17,54 @@ class IrisBuilder extends Builder {
      * @param tx  请求内容
      * @returns {StdTx}
      */
-  buildTx(tx) {
-    const req = super.buildParam(tx);
-    let msg;
-    switch (req.type) {
-      case Config.iris.tx.transfer.type: {
-        msg = Bank.createMsgSend(req);
-        break;
-      }
-      case Config.iris.tx.delegate.type: {
-        msg = Stake.createMsgDelegate(req);
-        break;
-      }
-      case Config.iris.tx.undelegate.type: {
-        msg = Stake.createMsgBeginUnbonding(req);
-        break;
-      }
-      case Config.iris.tx.redelegate.type: {
-        msg = Stake.createMsgBeginRedelegate(req);
-        break;
-      }
-      case Config.iris.tx.withdrawDelegationRewardsAll.type: {
-        msg = Distribution.createMsgWithdrawDelegatorRewardsAll(req);
-        break;
-      }
-      case Config.iris.tx.withdrawDelegationReward.type: {
-        msg = Distribution.createMsgWithdrawDelegatorReward(req);
-        break;
-      }
-      case Config.iris.tx.deposit.type: {
-        msg = Gov.createMsgDeposit(req);
-        break;
-      }
-      case Config.iris.tx.vote.type: {
-        msg = Gov.createMsgVote(req);
-        break;
-      }
-      default: {
-        throw new Error('not exist tx type');
-      }
+    buildTx(tx) {
+        let req = super.buildParam(tx);
+        let msg;
+        switch (req.type) {
+            case Config.iris.tx.transfer.type: {
+                msg = Bank.createMsgSend(req);
+                break;
+            }
+            case Config.iris.tx.delegate.type: {
+                msg = Stake.createMsgDelegate(req);
+                break;
+            }
+            case Config.iris.tx.undelegate.type: {
+                msg = Stake.createMsgBeginUnbonding(req);
+                break;
+            }
+            case Config.iris.tx.redelegate.type: {
+                msg = Stake.createMsgBeginRedelegate(req);
+                break;
+            }
+            case Config.iris.tx.withdrawValidatorRewardsAll.type: {
+                msg = Distribution.createMsgWithdrawValidatorRewardsAll(req);
+                break;
+            }
+            case Config.iris.tx.withdrawDelegationRewardsAll.type: {
+                msg = Distribution.createMsgWithdrawDelegatorRewardsAll(req);
+                break;
+            }
+            case Config.iris.tx.withdrawDelegationReward.type: {
+                msg = Distribution.createMsgWithdrawDelegatorReward(req);
+                break;
+            }
+            case Config.iris.tx.setWithdrawAddress.type: {
+                msg = Distribution.createMsgSetWithdrawAddress(req);
+                break;
+            }
+            case Config.iris.tx.deposit.type: {
+                msg = Gov.createMsgDeposit(req);
+                break;
+            }
+            case Config.iris.tx.vote.type: {
+                msg = Gov.createMsgVote(req);
+                break;
+            }
+            default: {
+                throw new Error("not exist tx type");
+            }
+        }
     }
     const stdFee = Bank.NewStdFee(req.fees, req.gas);
     const signMsg = Bank.NewStdSignMsg(req.chain_id, req.account_number, req.sequence, stdFee, msg, req.memo, req.type);
