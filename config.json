@@ -99,7 +99,7 @@
         "prefix": "cosmos-sdk/MsgWithdrawDelegationReward"
       },
       "withdrawAllDelegatorReward": {
-        "type": "withdraw_delegation_reward",
+        "type": "withdraw_all_delegation_reward",
         "prefix": "cosmos-sdk/MsgWithdrawDelegationReward"
       },
       "withdrawValidatorCommission": {
