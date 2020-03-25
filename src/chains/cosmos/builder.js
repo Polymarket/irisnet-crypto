@@ -45,6 +45,10 @@ class CosmosBuilder extends Builder {
         msg = Distribution.CreateMsgWithdrawDelegatorReward(req);
         break;
       }
+      case Config.cosmos.tx.withdrawAllDelegatorReward.type: {
+        msg = Distribution.CreateMsgWithdrawAllDelegatorReward(req);
+        break;
+      }
       case Config.cosmos.tx.withdrawValidatorCommission.type: {
         msg = Distribution.CreateMsgWithdrawValidatorCommission(req);
         break;

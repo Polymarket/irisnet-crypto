@@ -154,6 +154,17 @@ module.exports = class Distribution {
     });
   }
 
+  static CreateMsgWithdrawAllDelegatorReward(req) {
+    return req.msg.map( val_addr => {
+      const delegator_addr = BECH32.decode(req.from).words;
+      const validator_addr = BECH32.decode(val_addr).words;
+      return new MsgWithdrawDelegatorReward({
+        DelegatorAddress: delegator_addr,
+        ValidatorAddress: validator_addr,
+      });
+    })
+  }
+
   static CreateMsgWithdrawValidatorCommission(req) {
     const validator_addr = BECH32.decode(req.from).words;
     return new MsgWithdrawValidatorCommission({

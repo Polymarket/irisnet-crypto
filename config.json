@@ -98,6 +98,10 @@
         "type": "withdraw_delegation_reward",
         "prefix": "cosmos-sdk/MsgWithdrawDelegationReward"
       },
+      "withdrawAllDelegatorReward": {
+        "type": "withdraw_delegation_reward",
+        "prefix": "cosmos-sdk/MsgWithdrawDelegationReward"
+      },
       "withdrawValidatorCommission": {
         "type": "withdraw_validator_commission",
         "prefix": "cosmos-sdk/MsgWithdrawValidatorCommission"
