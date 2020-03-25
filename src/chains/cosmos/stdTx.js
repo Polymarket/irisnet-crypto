@@ -27,7 +27,7 @@ class StdSignMsg extends Builder.Msg {
     this.account_number = accnum;
     this.sequence = sequence;
     this.fee = fee;
-    this.msgs = [msg];
+    this.msgs = Array.isArray(msg) ? msg : [msg];
     this.memo = memo;
   }
 
